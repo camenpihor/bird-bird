@@ -1,0 +1,17 @@
+name: bird-bird3.8
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip = 20.1.1
+  - python = 3.8.3
+  - setuptools = 49.2.0
+
+  - pip:
+    - callisto == 0.7
+    - matplotlib == 3.2.2
+    - numpy == 1.19.0
+    - opencv-python == 4.3.0.36
+    - Pillow == 7.2.0
+    - tensorflow == 2.2.0
+    - tensorflow_hub == 0.8.0

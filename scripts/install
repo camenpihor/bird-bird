@@ -1,0 +1,6 @@
+#!/bin/bash
+
+conda env create --force
+source activate bird-bird3.7
+callisto -d || true  # delete jupyter kernel, if exists
+callisto --path=$PWD

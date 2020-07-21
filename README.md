@@ -4,6 +4,7 @@
 
 1. `git clone https://github.com/camenpihor/bird-bird.git`
 1. `git submodule update --init`
+1. `scripts/install`
 
 ## Update Submodule
 
