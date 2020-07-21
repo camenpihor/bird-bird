@@ -1,6 +1,33 @@
 #!/bin/bash
 
 conda env create --force
-source activate bird-bird3.7
+source activate bird-bird3.8
+
+conda info
+
+echo "Setting up callisto"
 callisto -d || true  # delete jupyter kernel, if exists
 callisto --path=$PWD
+
+echo "Setting up object_detection"
+if which protoc > /dev/null; then
+    cd submodules/tf_models/research
+    protoc object_detection/protos/*.proto --python_out=.
+    cp object_detection/packages/tf2/setup.py .
+    python -m pip install .
+else
+    echo "Protobuf is not installed. See REAMDE.md#Requirements"
+    exit 1
+fi
+
+echo "Success!"
+
+echo "#
+# To activate this environment, use
+#
+#       $ source activate bird-bird3.8
+#
+# To deactivate, use
+#
+#       $ conda deactivate
+"
